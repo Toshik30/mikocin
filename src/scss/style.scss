@@ -9,14 +9,29 @@
 }
 
 body {
-	
+	font-family: $regular-font;
+}
+.container {
+	max-width: 1200px;
+	padding: 0 15px;
+	margin: 0 auto;
+
+	@include for-phone {
+		max-width: 320px;
+	}
+	@include for-tablet {
+		max-width: 759px;
+	}
 }
 
-section {
-	padding: 2em 0;
+input {
+	&:focus {
+			outline: none;
+		}
 }
 
 @import "layouts/header";
+@import "layouts/main";
 
 
 

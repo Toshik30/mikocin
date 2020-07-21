@@ -1,3 +1,418 @@
 @import "../base/variables";
 
+header {
+	background-image: url(/images/fullbg.png);
+	background-repeat: no-repeat;
+    background-position: center -230px;
+    position: relative;
+
+    @include for-tablet {
+		background-image: none;
+	}
+
+    .head {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+
+		@include for-phone {
+			flex-direction: column;
+			padding: 15px 0;
+		}
+		
+		.logo {
+			@extend %flex-between;
+			text-align: center;
+			font-family: $black-font;
+			text-decoration: none;
+			color: black;
+			margin-right: 40px;
+			font-size: 22px;
+
+			img {
+				margin-right: 15px;
+			}
+		}
+	}
+
+	.feedback {
+		display: flex;
+		font-family: $italic-font;
+
+		@include for-phone {
+			flex-direction: column;
+		}
+		@include for-tablet {
+			margin-left: 10px;
+			font-size: 12px;
+
+		}
+
+		.case {
+			display: flex;
+			align-items: center;
+			margin-left: 48px;
+
+			img {
+				margin-right: 10px;
+			}
+
+			@include for-phone {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+
+.main-content {
+	position: relative;
+}
+h1 {
+	font-size: 44px;
+	margin-bottom: 5px;
+	font-family: $black-font;
+
+	@include for-tablet {
+		font-size: 40px;
+	}
+}
+h2 {
+	font-size: 34px;
+	margin: 0;
+	font-family: $black-font;
+
+	@include for-phone {
+		font-size: 30px;
+	}
+	@include for-tablet {
+		font-size: 32px;
+	}
+}
+
+ul {
+	margin-top: 45px;
+	padding: 0;
+	position: relative;
+	font-family: $regular-font;
+
+	&::before {
+		content: '';
+		position: absolute;
+		background:  url(/images/icons/arrows.png)  no-repeat;
+		width: 5px;
+	    height: 50%;
+	    left: 28px;
+	    top: 85px;
+	}
+}
+li {
+	position: relative;
+	list-style-type: none;
+	display: flex;
+	align-items: center;
+	font-size: 20px;
+	margin-bottom: 50px;
+	font-size: 20px;
+
+	&::before {
+		content: '1';
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-right: 10px;
+		min-width: 46px;
+		min-height: 46px;
+		background-color: #a7c93d;
+		border-radius: 50%;
+		border: 7px solid #e8edc9;
+		color: white;
+		font-weight: 700;
+	}
+
+	&:first-child {
+		&::before {
+			content: '2в1';
+		}
+	}
+	&:last-child {
+		&::before {
+			content: '2';
+		}
+	}
+
+	span {
+
+		b {
+			font-family: $medium-font;
+		}
+	}
+}
+
+.underline-orange {
+	position: relative;
+
+	&::before {
+		content: '';
+		width: 100%;
+		background: #ff6b00;
+		height: 3px;
+		position: absolute;
+		bottom: 0;
+	}
+}
+.underline-green {
+	position: relative;
+
+	&::before {
+		content: '';
+		width: 100%;
+		background: #a7c93d;
+		height: 3px;
+		position: absolute;
+		bottom: 0;
+	}
+}
+
+.text-content {
+	@include for-desktop {
+		max-width: 360px;
+		margin-right: 33px;
+	}
+}
+
+.preview {
+	position: absolute;
+    bottom: -200px;
+    left: -25px;
+
+    @include for-phone {
+    	position: static;
+    	width: 100%;
+    }
+    @include for-tablet {
+		position: static;
+    	width: 100%;
+	}
+}
+.description {
+	display: flex;
+	justify-content: flex-end;
+
+	 @include for-phone {
+    	flex-direction: column;
+    	justify-content: unset;
+    	align-items: center;
+    }
+}
+
+.order {
+	position: relative;
+	display: flex;
+	background-color: #fff;
+	text-align: center;
+	width: 270px;
+	border: 7px solid #a7c93d;
+	border-radius: 18px;
+	font-family: $regular-font;
+	margin-top: 28px;
+
+	h4 {
+		font-size: 20px;
+		font-weight: 400;
+		line-height: 22px;
+
+		p {
+			margin: 0;
+		}
+	}
+
+	legend {
+		transform: translateY(12px);
+	    border: 7px solid #a7c93d;
+	    border-top: none;
+	    border-radius: 8px;
+	    padding: 1px 10px 4px;
+	    border-top-left-radius: 0;
+	    border-top-right-radius: 0;
+
+	    &:before {
+	    	content: '';
+	    	background-image: url(/images/icons/car.svg);
+	    	display: inline-block;
+	    	width: 27px;
+	    	height: 15px;
+	    	vertical-align: middle;
+	    	margin-right: 8px;
+
+	    }
+	}
+
+	.remains {
+		margin-bottom: 50px;
+		font-size: 18px;
+		padding: 0 15px;
+
+		.text-green {
+			font-family: $medium-font;
+		}
+	}
+
+	.license {
+		color: #666666;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		background-color: #eef2f7;
+		margin: 0;
+		padding: 15px 0;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+
+		&:before {
+			content: '';
+			background-image: url(/images/icons/shield.svg);
+			background-repeat: no-repeat;
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 12px;
+			width: 20px;
+			height: 20px;
+
+		}
+	}
+}
+
+.text-orange {
+	color: #ff6b00;
+}
+.text-green {
+	color:  #a7c93d;
+}
+.prices {
+	font-size: 34px;
+	display: flex;
+	justify-content: center;
+	position: relative;
+
+	&:before {
+    	content: '';
+    	background-image: url(/images/icons/arrow.svg);
+    	background-repeat: no-repeat;
+    	position: absolute;
+    	width: 49px;
+    	height: 233px;
+    	left: 100%;
+    	top: 20px;
+    }
+
+    @include for-phone {
+    	&:before {
+    		display: none;
+    	}
+    }
+
+    .price {
+    	padding: 4px 10px;
+		position: relative;
+		border-radius: 7px;
+
+		&:before {
+			font-family: $regular-font;
+			position: absolute;
+			width: 100%;
+			bottom: calc(100% + 5px);
+			left: 0;
+			font-size: 14px;
+		}
+
+		&.old {
+			&:before {
+				color: #666666;
+
+				content: 'старая цена';
+			}
+
+			&:after {
+				content: '';
+				background-image: url(/images/icons/two-lines.svg);
+				background-repeat: no-repeat;
+				background-size: contain;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				right: 4px;
+				top: 8px;
+			}
+		}
+
+		&.new {
+			background-color: #ffc20d;
+		    margin-left: 12px;
+		    font-family: $black-font;
+
+		    &:before {
+				content: 'новая цена';
+			}
+		}
+    }
+}
+
+.input-wrapper {
+	position: relative;
+	border-radius: 32px;
+	background-color: #eef2f7;
+	box-shadow: inset 0 2px 7px rgba(0, 0, 0, 0.04);
+	overflow: hidden;
+	margin: 10px 0;
+
+	input {
+		border: none;
+		font-size: 16px;
+		padding: 25px 25px 25px 55px;
+		width: 100%;
+	}
+
+	i {
+		position: absolute;
+		left: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 19px;
+		height: 23px;
+		background-size: contain;
+		background-repeat: no-repeat;
+
+		&.user {
+			background-image: url(/images/icons/user.svg);
+		}
+
+		&.phone {
+			background-image: url(/images/icons/phone.svg);
+		}	
+	}
+}
+
+button {
+	font-size: 28px;
+	padding: 10px 43px;
+	border-radius: 32px;
+	border: 2px solid #ffd14e;
+	background-color: #ffc20d;
+	margin: 10px 0 20px;
+	width: calc(100% - 10px);
+	box-shadow: 0px 0px 0px 5px #ffc20d;
+	line-height: 22px;
+	font-weight: 700;
+
+	p {
+		font-size: 16px;
+		margin: 0;
+		line-height: 16px;
+
+	}
+
+}
 
